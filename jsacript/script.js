@@ -11,8 +11,7 @@ calcBtnEl.addEventListener('click', function(ev){
 
     if (ev.target.nodeName === 'BUTTON' && ev.target.dataset.sign === '+'){
         singEl.innerText = ev.target.getAttribute('data-sign');
-        activeNum = document.getElementById('num2');
-        
+        activeNum = document.getElementById('num2'); 
     }
 
     if (ev.target.nodeName === 'BUTTON' && ev.target.dataset.sign === '-'){
@@ -44,7 +43,10 @@ calcBtnEl.addEventListener('click', function(ev){
     if (ev.target.nodeName === 'BUTTON' && ev.target.dataset.sign === '+/-'){  
             activeNum.innerText = -activeNum.innerText;
     }
-
+    if (ev.target.nodeName === 'BUTTON' && ev.target.dataset.num && ev.target.dataset.sign === '='){
+        document.getElementById('num1').innerText ="";
+        activeNum = document.getElementById('num1');
+    }
     /*=======================================================*/
     if(ev.target.nodeName === 'BUTTON' && ev.target.dataset.sign === '=' && singEl.innerText  === '+'){
         let num1Val = +document.getElementById('num1').innerText;
@@ -86,6 +88,7 @@ calcBtnEl.addEventListener('click', function(ev){
         singEl.innerText = "";
         document.getElementById('num1').innerText = result.toFixed(5);
         
+        
     }
 
     if(ev.target.nodeName === 'BUTTON' && ev.target.dataset.sign === '=' && singEl.innerText  === 'rad'){
@@ -98,10 +101,10 @@ calcBtnEl.addEventListener('click', function(ev){
     }
     
     if(ev.target.nodeName === 'BUTTON' && ev.target.dataset.sign === 'ce'){
-        
         document.getElementById('num1').innerText ="";
         document.getElementById('num2').innerText = "";
         singEl.innerText = "";
         activeNum = document.getElementById('num1');
     }
+    
 })
